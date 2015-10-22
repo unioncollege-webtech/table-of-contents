@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Zookeep</title>
+</head>
+
+<body>
+    <article>
+        <h1>Zookeep</h1>
+        <p>
+            <a href="https://gitter.im/unioncollege-webtech/zookeep?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+        </p>
+        <p>Create a list of zoo animals using Objects and Arrays, and create a web page to display their information.</p>
+        <aside id="table-of-contents">
+            
+        </aside>
+        <h2 id="description">Description</h2>
+        <blockquote>
+            <p><em>Please note: you will be doing your work on the <code>gh-pages</code> branch (see
+instructions <a href="#completing-and-submitting-the-assignment">below</a>).
+If you clone the repository and have no files, remember to run <code>git checkout gh-pages</code>.</em></p>
+        </blockquote>
+        <p>In this assignment, we’ll be building a homepage for a zoo. The homepage will have several features, including a gallery of zoo animals, a “featured animal of the week”, and a list of the animals sorted by their ages.</p>
+        <p>An “<a href="./index.html">index.html</a>” file with basic styling has already been created for you, as well as a file called “render-helpers.js” containing several predefined functions for displaying the information on the page.</p>
+        <p>You will create a new file with an array containing the animals’ information, and use various <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Methods_2">array methods</a> to sort, filter, and organize
+            lists of animals, and display their information by calling the predefined functions.</p>
+        <h3 id="create-zoo-js-with-the-animals-array">Create zoo.js with the <code>animals</code> array</h3>
+        <p>Begin by creating a file called “zoo.js”. Inside “zoo.js”, declare a variable called <code>animals</code>, which is an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> containing an
+            <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object</a> for each of the
+                <a href="#animals">Animals</a> in the table below.</p>
+        <p>Each animal should be an Object that contains the following properties:</p>
+        <ul>
+            <li><code>name</code>: a String with the animal’s name from the table below</li>
+            <li><code>commonName</code>: a String with the common name for the animal’s species</li>
+            <li><code>species</code>: a String with the animal’s official species name</li>
+            <li><code>location</code>: a String containing the area in the zoo where the animal resides</li>
+            <li><code>age</code>: a Number representing the animal’s age in years</li>
+            <li><code>image</code>: a String containing the file name for the animal’s image</li>
+        </ul>
+        <p>For instance, the object for “Pip” the red river hog would be:</p>
+        <pre><code class="lang-javascript">{
+  name: "Pip",
+  commonName: "Red river hog",
+  species: "Potamochoerus porcus",
+  location: "Fagan Valley",
+  age: 4,
+  image: "Red_river_hog.jpg"
+}</code></pre>
+        <h3 id="sort-and-display-the-animal-gallery">Sort and display the animal gallery</h3>
+        <p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort()</a> to sort the <code>animals</code> array based on their <code>name</code>.</p>
+        <p>After the <code>animals</code> array is sorted, call the <code>displayAnimalGallery()</code> function, passing in the (sorted) <code>animals</code> array. For example:</p>
+        <pre><code class="lang-javascript">displayAnimalGallery(animals);</code></pre>
+        <p>Run <code>node test</code> to see if everything is working correctly so far, and also take a look at “index.html” in a browser. If everything works correctly, you should see a gallery of the zoo animals. Woot!</p>
+        <h3 id="display-the-featured-animal">Display the featured animal</h3>
+        <p>The featured animal of the week is Taylor, the Swift fox. Use
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a> to create a new array containing <em>only</em> Taylor, and store this array in a variable called <code>featured</code>. Use
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors#Bracket_notation">bracket notation</a> (
+            <code>featured[index]</code>) to retrieve the first (and only) array element, and pass it to the <code>displayFeaturedAnimal()</code> function.</p>
+        <h3 id="map-sort-and-display-animal-ages">Map, sort, and display animal ages</h3>
+        <p>Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map()</a> to create a new array containing <strong>only</strong> the animals’
+            <code>name</code>, <code>commonName</code> and <code>age</code>, and store the new array in a variable called
+            <code>ages</code>. Use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort()</a> to sort <code>ages</code> based on the animals’ age in ascending order (smallest to largest) . Call the
+            <code>displayAnimalAges()</code> function, passing in the <code>ages</code> array.</p>
+        <h2 id="animals">Animals</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Common Name</th>
+                    <th>Species</th>
+                    <th>Location</th>
+                    <th>Age</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mooney</td>
+                    <td>Blue monkey</td>
+                    <td>Cercopithecus mitis</td>
+                    <td>Smith Jungle</td>
+                    <td>2</td>
+                    <td>Blue_monkey.jpg</td>
+                </tr>
+                <tr>
+                    <td>Sami</td>
+                    <td>Common squirrel monkey</td>
+                    <td>Saimiri sciureus</td>
+                    <td>Smith Jungle</td>
+                    <td>2</td>
+                    <td>Common_squirrel_monkey.jpg</td>
+                </tr>
+                <tr>
+                    <td>Chester</td>
+                    <td>Black howler monkey</td>
+                    <td>Alouatta caraya</td>
+                    <td>Smith Jungle</td>
+                    <td>5</td>
+                    <td>Black_howler_monkey.jpg</td>
+                </tr>
+                <tr>
+                    <td>Scarborough</td>
+                    <td>Scarlet macaw</td>
+                    <td>Ara macao</td>
+                    <td>Smith Jungle</td>
+                    <td>3</td>
+                    <td>Scarlet_macaw.jpg</td>
+                </tr>
+                <tr>
+                    <td>Maverick</td>
+                    <td>Tufted puffin</td>
+                    <td>Fratercula cirrhata</td>
+                    <td>Birai Aquarium</td>
+                    <td>2</td>
+                    <td>Tufted_puffin.jpg</td>
+                </tr>
+                <tr>
+                    <td>Puck</td>
+                    <td>Little penguin</td>
+                    <td>Eudyptula minor</td>
+                    <td>Birai Aquarium</td>
+                    <td>4</td>
+                    <td>Little_penguin.jpg</td>
+                </tr>
+                <tr>
+                    <td>Tweed</td>
+                    <td>Leafy sea dragon</td>
+                    <td>Phycodurus eques</td>
+                    <td>Birai Aquarium</td>
+                    <td>1</td>
+                    <td>Leafy_seadragon.jpg</td>
+                </tr>
+                <tr>
+                    <td>Taylor</td>
+                    <td>Swift fox</td>
+                    <td>Vulpes velox</td>
+                    <td>Rodeheaver Desert</td>
+                    <td>9</td>
+                    <td>Swift_fox.jpg</td>
+                </tr>
+                <tr>
+                    <td>Trip</td>
+                    <td>Cape thick-knee</td>
+                    <td>Burhinus capensus</td>
+                    <td>Rodeheaver Desert</td>
+                    <td>5</td>
+                    <td>Cape_thick-knee.jpg</td>
+                </tr>
+                <tr>
+                    <td>Helios</td>
+                    <td>Mantled guereza</td>
+                    <td>Colobus guereza</td>
+                    <td>Fagan Valley</td>
+                    <td>11</td>
+                    <td>Mantled_guereza.jpg</td>
+                </tr>
+                <tr>
+                    <td>Asteria</td>
+                    <td>Western lowland gorilla</td>
+                    <td>Gorilla gorilla gorilla</td>
+                    <td>Fagan Valley</td>
+                    <td>5</td>
+                    <td>Western_lowland_gorilla.jpg</td>
+                </tr>
+                <tr>
+                    <td>Perses</td>
+                    <td>Wolf's mona monkey</td>
+                    <td>Cercopithecus wolfi</td>
+                    <td>Fagan Valley</td>
+                    <td>10</td>
+                    <td>Wolfs_mona_monkey.jpg</td>
+                </tr>
+                <tr>
+                    <td>Pip</td>
+                    <td>Red river hog</td>
+                    <td>Potamochoerus porcus</td>
+                    <td>Fagan Valley</td>
+                    <td>4</td>
+                    <td>Red_river_hog.jpg</td>
+                </tr>
+                <tr>
+                    <td>Skrytnaya</td>
+                    <td>Amur leopard</td>
+                    <td>Panthera pardus orientalis</td>
+                    <td>Kond Cat Complex</td>
+                    <td>8</td>
+                    <td>Amur_leopard.jpg</td>
+                </tr>
+                <tr>
+                    <td>Matadi</td>
+                    <td>African lion</td>
+                    <td>Panthera leo</td>
+                    <td>Kond Cat Complex</td>
+                    <td>6</td>
+                    <td>African_lion.jpg</td>
+                </tr>
+                <tr>
+                    <td>Kimani</td>
+                    <td>Siberian tiger</td>
+                    <td>Panthera tigris altaica</td>
+                    <td>Kond Cat Complex</td>
+                    <td>9</td>
+                    <td>Siberian_tiger.jpg</td>
+                </tr>
+                <tr>
+                    <td>Antipode</td>
+                    <td>Polar bear</td>
+                    <td>Ursus maritimus</td>
+                    <td>Moser Canyon</td>
+                    <td>11</td>
+                    <td>Polar_bear.jpg</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="extra-credit-options">Extra Credit Options</h2>
+        <ol>
+            <li>
+                <p>There are 6 different exhibits at the zoo: Moser Canyon, Fagan Valley, Smith Jungle, Kond Cat Complex, Birai Aquarium, and Rodeheaver Desert. Create a new page, “exhibits.html”, that lists or displays a gallery containing the animals for
+                    each exhibit.
+                </p>
+            </li>
+            <li>
+                <p>Instead of using “resources/render-helpers.js” and “resources/style.css”, write your own HTML, CSS and JavaScript to render the featured animal, gallery, and animal ages listing. Be creative and be awesome.</p>
+            </li>
+        </ol>
+        <h2 id="higher-order-functions">Higher-Order Functions</h2>
+        <p>Higher-order functions are functions that either accept functions as parameters or return a function as a return value.</p>
+        <p>Create a new branch by running the command <code>git checkout -b higher-order-functions</code>. In this branch, edit your “zoo.js” and add three new higher-order functions:</p>
+        <h3 id="sortby-property-name">sortBy(propertyName)</h3>
+        <p>The <code>sortBy</code> function returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Description">compare function</a> that sorts elements based on the value of each element's <code>propertyName</code>            property.
+        </p>
+        <p>For instance, calling <code>sortBy('name')</code>, will return a function that can be passed to <code>animals.sort(...)</code>, and will sort the animals based their <code>name</code> property.
+        </p>
+        <p>Use your new <code>sortBy</code> function to create compare functions to sort the <code>animals</code> array by their <code>"name"</code> property, and the <code>ages</code> array to sort by <code>"age"</code>.</p>
+        <h3 id="property-equals-property-name-value">propertyEquals(propertyName, value)</h3>
+        <p>The <code>propertyEquals</code> function returns a function that returns <code>true</code> if an element has a property at <code>propertyName</code> with the specified <code>value</code>.</p>
+        <p>For instance, calling <code>propertyEquals('name', 'Taylor')</code> will return a function that can be passed to <code>animals.filter(...)</code> to generate a new array containing only <code>Taylor</code> the Swift fox. Use this function to create
+            the <code>featured</code> animal array.
+        </p>
+        <h3 id="pick-p1-p2-p3">pick(p1[, p2[, p3...]])</h3>
+        <p>The <code>pick</code> function returns a function that returns a new object containing only the properties specified.</p>
+        <pre><code class="lang-javascript">var furniture = [{
+  name: "chair",
+  legs: 4,
+  material: "wood"
+}, {
+  name: "stool",
+  legs: 3,
+  material: "metal"
+}];
+
+var noLegs = furniture.map( pick('name', 'material') );
+console.log( noLegs );
+// =&gt; [{name: "chair",  material: "wood"}, {name: "stool", material: "metal"}]</code></pre>
+        <p>The <code>pick</code> function should accept any number of arguments (hint: use the
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments"><code>arguments</code></a> object inside your function).</p>
+        <p>Use the <code>pick</code> function to create the function passed to <code>animals.map(...)</code> when creating a the <code>ages</code> array.</p>
+        <p>When you have created and used all three higher-order functions, commit your changes to the higher-order-functions branch and push it to GitHub by running <code>git push -u origin higher-order-functions</code>. Create a new pull request from your
+            <code>higher-order-functions</code> branch to submit your assignment.</p>
+        <h2 id="completing-and-submitting-the-assignment">Completing and submitting the assignment</h2>
+        <ul>
+            <li>To begin, <a href="https://guides.github.com/activities/forking/"><strong>fork</strong> this repository</a>.</li>
+            <li>
+                <p><a href="https://docs.c9.io/docs/setting-up-github-workspace">Create a new Cloud9 workspace</a> from your new repository.</p>
+                <ul>
+                    <li>
+                        <p>Alternatively, you may <a href="http://gitref.org/creating/#clone"><strong>clone</strong></a> your new repository to your computer by running:
+                        </p>
+                        <pre><code>git clone https://github.com/YOUR_GITHUB_USERNAME/zookeep</code></pre>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>After cloning (in Cloud9 or on your computer), check out the “<strong>gh-pages</strong>” branch by running:</p>
+                <pre><code>  git checkout gh-pages</code></pre>
+            </li>
+            <li>
+                <p>Modify the files and <a href="http://gitref.org/basic/#commit"><strong>commit</strong></a> changes to complete your solution.</p>
+            </li>
+            <li>Run <code>node test</code> to verify that all tests pass.</li>
+            <li><a href="http://gitref.org/remotes/#push">Push</a>/sync the changes up to GitHub. Your assignment will now be visible at
+                <a href="http://unioncollege-webtech.github.io/zookeep/"></a><a href="http://YOUR_GITHUB_USERNAME.github.io/zookeep/">http://YOUR_GITHUB_USERNAME.github.io/zookeep/</a>.</li>
+            <li><a href="https://help.github.com/articles/creating-a-pull-request">Create a pull request</a> on the original repository to turn in the assignment.</li>
+            <li><a href="http://gitref.org/branching/#branch">Create a separate branch</a> for the extra credit options.</li>
+        </ul>
+        <p>You are also welcome commit, push, and create a pull request <strong>before</strong> you’ve completed your solution. You can ask questions or request feedback there in your pull request. Just mention <code>@barberboy</code> in your comments to
+            get my attention.</p>
+        <h2 id="references">References</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">array.sort(compareFn)</a> - sort the elements of an array based on the provided comparison function</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">array.filter(testFn)</a> - create a new array containing only the elements for which the test function returns <code>true</code></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">array.map(mappingFn)</a> - create a new array containing the elements returned from the mapping function</li>
+        </ul>
+        <h2 id="license">License</h2>
+        <p><a href="./LICENSE">ISC</a></p>
+        </div>
+    </article>
+    <script src="toc.js"></script>
+</body>
+
+</html>
