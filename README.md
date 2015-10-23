@@ -3,7 +3,7 @@ Walk-Through: Auto Table of Contents
 
 In this walk-through, we are going to write JavaScript to auto-generate a 
 table of contents for an article based on the headings in the HTML document.
-Along the way we’ll be learning and using several vital DOM methods.
+Along the way we’ll be learning and using [several vital DOM methods](#references).
 
 We will be working with a modified version of the [ZooKeep](https://github.com/unioncollege-webtech/zookeep#zookeep)
 assignment description. The source HTML that we’re working with is in [index.html](./index.html).
@@ -54,12 +54,8 @@ console.
 Step 3: Loop through the headings
 ---------------------------------
 Loop through the headings using a [`for`][for] loop and build a list of links to
-the different sections of the document. For each of the headings, create a 
-[`li` (list item) element][li] with an [`a` (anchor) element][a], and append the
-`li` to `tocList`.
-
-The final HTML for the table of contents list will look something like the
-following:
+the different sections of the document. The final HTML for the table of contents
+list will look something like the following:
 
 ```html
 <ol>
@@ -79,10 +75,9 @@ following:
 </ol>
 ```
 
-As you can see from the HTML above, we are using the `id` attribute from the
+To generate the content above, we will use the `id` attribute from the
 headings to generate the fragment identifier for the `href` attribute on the
-`a` elements, and we are using the `textContent` from the heading for the `a`
-element’s content.
+`a` elements, and use the heading text for the `a` element’s content.
 
 Just so we are certain that we have access to the necessary information, let’s 
 start by creating a `for` loop that just logs the [`id`][id] and
@@ -95,21 +90,23 @@ start by creating a `for` loop that just logs the [`id`][id] and
         console.log(heading.textContent);
     }
 
-At this point, save toc.js and load index.html in the browser. Refresh
-index.html and ensure that the correct information is being logged to the
-console. It should look something like the following:
+At this point, save toc.js and load index.html in the browser. Refresh the page
+and ensure that the correct information is being logged to the console. It
+should look something like the following:
 
 ![description \n Description \n create-zoo-js-with-the-animals-array \n Create...](./resources/console-log-heading-id-textcontent.png)
+
 
 Step 4: Build the `a` and `li` elements
 ---------------------------------------
 
 Now that we know we have access to the `id` and `textContent` of the headings, 
 it’s short work to build the list item and anchor elements for each of the
-headings. We need to set the [`href`][href], [`rel`][rel], and
+headings. For each of the headings, create a [`li` (list item) element][li] and
+an [`a` (anchor) element][a]. Set the [`href`][href], [`rel`][rel], and
 [`textContent`][textContent] properties of the anchor, then use [node.appendChild][ac]
 to add the anchor element to the list item, then add the list item to the
-`tocList` `ol` element.
+`tocList` ordered list element.
 
     for(var i = 0; i < headings.length; i++) {
         var heading = headings[i];
@@ -152,7 +149,7 @@ element with the `id` “table-of-contents”. This element is a placeholder for
 table of contents list that we are building.
 
 Use [`document.querySelector`][dqs] to find the element with the id
-“table-of-contents”. Store this in a variable called `toc`.
+“*table-of-contents*”. Store this in a variable called `toc`.
 
     var toc = document.querySelector('#table-of-contents');
 
@@ -164,7 +161,7 @@ To be certain that we found the correct element, log `toc` to the console.
 Step 6: Add the `tocList` to the `toc` placeholder element
 ----------------------------------------------------------
 
-All that’s necessary now is to add `tocList` to `toc` by using appendChild.
+All that’s necessary now is to add `tocList` to `toc` by using [appendChild][ac].
 
     toc.appendChild(tocList);
 
@@ -203,7 +200,7 @@ Step 8: Make it collapsible
 ---------------------------
 
 It would be a nice enhancement to allow the user to click on the Table of
-Contents heading to collapse or expand the heading.
+Contents heading to collapse or expand the list.
 
 Use [addEventListener][ael] to listen for ‘click’ events on the table of
 contents heading. In the listener callback function, use the [`classList`][classList]
@@ -245,10 +242,10 @@ Step 10: Additional improvements
 
 Currently our table of contents list is flat: `h2` headings are on the same level
 as `h3`s. In a true outline, `h3` elements that follow an `h2` are considered
-children of the h2 elements and should be nested one level deeper.
+children of the `h2` elements and should be nested one level deeper.
 
 Update the `for` loop that generates the list items so greater heading levels
-are appropriately nesetd. Your ending HTML structure should look something like
+are appropriately nested. Your ending HTML structure should look something like
 the following:
 
 ```html
@@ -297,20 +294,20 @@ of the file, call the `autoToC` function. Your final code might look something
 like this:
 
     function autoToC() {
-        // Step 1: Find the heading elements
+        // Find the heading elements
         var headings = document.querySelectorAll("h2, h3, h4, h5, h6");
         console.log(headings);
     
-        // Step 2: Create an ordered list
+        // Create an ordered list
         var tocList = document.createElement('ol');
         console.log(tocList);
     
-        // Step 3: Loop through the headings
+        // Loop through the headings
         for (var i = 0; i < headings.length; i++) {
             var heading = headings[i];
-            // [trimmed]
+            // ... (trimmed)
         }
-        // Step 4–9...
+        // ...
     }
     
     autoToC();
@@ -321,13 +318,42 @@ like this:
   This would give the caller complete control over where the table of contents
   is placed in the document. For instance “index.html” could use it like
   so:_
-  ```js
+  ```html
   <script>
       var description = document.querySelector('#description');
       description.parentNode.insertBefore(autoToC(), description);
   </script>
   ```
   _Consider making the changes necessary for this, but it is not required._
+
+
+Completing and submitting the assignment
+----------------------------------------
+
+- To begin, [**fork** this repository](https://guides.github.com/activities/forking/).
+- [Create a new Cloud9 workspace](https://docs.c9.io/docs/setting-up-github-workspace)
+  from your new repository.
+  - Alternatively, you may [**clone**](http://gitref.org/creating/#clone) your
+    new repository to your computer by running:
+
+        git clone https://github.com/YOUR_GITHUB_USERNAME/table-of-contents
+
+- After cloning (in Cloud9 or on your computer), check out the “**gh-pages**”
+  branch by running:
+
+        git checkout gh-pages
+
+- Modify the files and [**commit**](http://gitref.org/basic/#commit) changes to complete your solution.
+- Run `node test` to verify that all tests pass.
+- [Push](http://gitref.org/remotes/#push)/sync the changes up to GitHub. Your 
+  assignment will now be visible at
+  [http://YOUR_GITHUB_USERNAME.github.io/table-of-contents/](http://unioncollege-webtech.github.io/table-of-contents/).
+- [Create a pull request](https://help.github.com/articles/creating-a-pull-request)
+  on the original repository to turn in the assignment.
+
+You are also welcome commit, push, and create a pull request **before** you’ve 
+completed your solution. You can ask questions or request feedback there in your
+pull request. Just mention `@barberboy` in your comments to get my attention.
 
 
 References
@@ -351,7 +377,7 @@ References
 * [`textContent` property][textContent]
 * [`classList` property][classList]
 * [`classList.toggle(className)` method][toggle]
-
+* [`display` css property][display]
 
 [dqs]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
 [dqsa]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
@@ -373,7 +399,7 @@ References
 [href]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-href
 [for]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 [log]: https://developer.mozilla.org/en-US/docs/Web/API/Console/log#Syntax
-
+[display]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 License
 -------
 [ISC](LICENSE)
