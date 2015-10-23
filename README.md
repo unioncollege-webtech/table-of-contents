@@ -1,6 +1,8 @@
 Walk-Through: Auto Table of Contents
 ====================================
 
+[![Join the chat at https://gitter.im/unioncollege-webtech/table-of-contents](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/unioncollege-webtech/table-of-contents?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 In this walk-through, we are going to write JavaScript to auto-generate a 
 table of contents for an article based on the headings in the HTML document.
 Along the way we’ll be learning and using [several vital DOM methods](#references).
