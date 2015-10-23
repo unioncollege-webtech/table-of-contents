@@ -8,9 +8,9 @@ Along the way we’ll be learning and using [several vital DOM methods](#referen
 We will be working with a modified version of the [ZooKeep](https://github.com/unioncollege-webtech/zookeep#zookeep)
 assignment description. The source HTML that we’re working with is in [index.html](./index.html).
 
-index.html already [contains a script](./index.html#L304) element loading [toc.js](./toc.js).
-The code examples below should be added to toc.js to auto-generate our table of
-contents.
+“index.html” already [contains a script](./index.html#L304) element loading [toc.js](./toc.js).
+The code examples below should be added to “toc.js” to auto-generate our table 
+of contents.
 
 
 Step 1: Find the heading elements
@@ -26,7 +26,7 @@ to display `headings` in the browser’s console.
 
     console.log(headings);
 
-At this point, if you haven’t already, open index.html in a browser. Activate
+At this point, if you haven’t already, open “index.html” in a browser. Activate
 the Developer Tools and the Console. Refresh the page and make sure the NodeList
 of heading elements is logged to the console. You should see something like
 this, though the exact output varies by browser:
@@ -90,7 +90,7 @@ start by creating a `for` loop that just logs the [`id`][id] and
         console.log(heading.textContent);
     }
 
-At this point, save toc.js and load index.html in the browser. Refresh the page
+At this point, save “toc.js” and load “index.html” in the browser. Refresh the page
 and ensure that the correct information is being logged to the console. It
 should look something like the following:
 
@@ -165,7 +165,7 @@ All that’s necessary now is to add `tocList` to `toc` by using [appendChild][a
 
     toc.appendChild(tocList);
 
-Take a look at index.html in a browser now, and you see the table of contents
+Take a look at “index.html” in a browser now, and you see the table of contents
 list right below the introductory paragraph. Woot!!
 
 ![Screenshot of the list of links below the introductory paragraph](./resources/toc-list.png)
@@ -190,7 +190,7 @@ Now, use [node.insertBefore][ib] to add the heading to the `toc` placeholder
 
     toc.insertBefore(tocHeading, tocList);
 
-Take a look at index.html in a browser. Your table of contents list should look
+Take a look at “index.html” in a browser. Your table of contents list should look
 fantastic.
 
 ![Screenshot of the table of contents list with heading](./resources/toc-list-with-heading.png)
@@ -225,7 +225,7 @@ property to `none` for elements that have the ‘collapsed’ class name.
         display: none;
     }
 
-Now take a look at index.html in the browser, and things should be much more
+Now take a look at “index.html” in the browser, and things should be much more
 exciting.
 
 
@@ -288,8 +288,8 @@ Currently we are creating a lot of variables (`headings`, `toc`, `tocList`,
 `tocHeading`, `i`, `heading`, `a`, `li`). All of these variables are attached 
 to the global scope by default. That’s bad.
 
-In `toc.js`, declare a new function (called `autoToC` or something similar) and
-put all of the code from `toc.js` into the body of the function. Then at the end
+In “toc.js”, declare a new function (called `autoToC` or something similar) and
+put all of the code from “toc.js” into the body of the function. Then at the end
 of the file, call the `autoToC` function. Your final code might look something
 like this:
 
@@ -312,7 +312,7 @@ like this:
     
     autoToC();
 
-> _Note: it’s actually more helpful if the toc.js file *doesn’t* call itself 
+> _Note: it’s actually more helpful if the “toc.js” file *doesn’t* call itself 
   directly, but instead *just* defines the function. It would probably be most
   helpful if the `autoToC()` function created and returned the `nav` element.
   This would give the caller complete control over where the table of contents
