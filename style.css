@@ -1,0 +1,6 @@
+table-of-contents.collapsed ol {
+  display: none;
+}
+table-of-contents.collapsed h2 {
+ display: none;
+}
