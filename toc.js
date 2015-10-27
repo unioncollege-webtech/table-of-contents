@@ -37,15 +37,25 @@ function buildTableOfContents(){
   // Add the `tocList` to the `toc` placeholder element
   toc.appendChild(ol);
 
-  // Add a “Table of Contents” heading
   var tocHeading = document.createElement('h2');
-  tocHeading.textContent = 'Table of Contents';
+  tocHeading.className = 'toc-heading';
+  tocHeading.textContent = ' Table of Contents';
   toc.insertBefore(tocHeading, ol);
 
+  // Add a “Table of Contents” heading
+  var iTag = document.createElement('i');
+  iTag.className = "fa fa-compress fa-fw";
+  //iTag.textContent = ' Table of Contents';
+  toc.insertBefore(iTag, ol);
+
   // Make it collapsible
-  tocHeading.addEventListener('click', function(){
+  iTag.addEventListener('click', function(){
     ol.classList.toggle('collapsed');
-    console.log("Toggle!");
+    if(iTag.className == "fa fa-expand fa-fw"){
+      iTag.className = "fa fa-compress fa-fw";
+    } else {
+      iTag.className = "fa fa-expand fa-fw";
+    }
   }, false);
 }
 
