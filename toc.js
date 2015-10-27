@@ -3,7 +3,7 @@ function buildTableOfContents(){
   var headings = document.querySelectorAll("h2, h3, h4, h5, h6");
   var ol = document.createElement('ol');
 
-  // Manipulate data
+  // Manipulate data into array
   var list = [];
   var sub = [];
   for(var i = 0; i < headings.length; i++){
@@ -62,38 +62,3 @@ function buildLi(elem){
 }
 
 document.body.onload = buildTableOfContents();
-// Celebrate!
-
-
-// Additional improvements
-
-
-//
-// 3) Make the TOC a nested list: (h3s are nested inside h2s)
-//
-
-// Update the code generating the table of contents list above to make it a
-// nested list like so:
-//
-// <ol>
-//   <li>
-//     <a href="#description" rel="internal">Description</a>
-//     <ol>
-//       <li>
-//         <a href="#create-zoo-js-with-the-animals-array" rel="internal">Create zoo.js with the animals array</a>
-//       </li>
-//       <li>
-//         <a href="#sort-and-display-the-animal-gallery" rel="internal">Sort and display the animal gallery</a>
-//       </li>
-//       <li>
-//         <a href="#display-the-featured-animal" rel="internal">Display the featured animal</a>
-//       </li>
-//       <li>
-//         <a href="#map-sort-and-display-animal-ages" rel="internal">Map, sort, and display animal ages</a>
-//       </li>
-//     </ol>
-//   <li>
-//     <a href="#animals" rel="internal">Animals</a>
-//   </li>
-//   ...
-// </ol>
