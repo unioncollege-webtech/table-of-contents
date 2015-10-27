@@ -2,6 +2,7 @@ function buildTableOfContents(){
   // Find the heading elements
   var headings = document.querySelectorAll("h2, h3, h4, h5, h6");
   var ol = document.createElement('ol');
+  ol.className = 'outer-ol';
 
   // Manipulate data into array
   var list = [];
