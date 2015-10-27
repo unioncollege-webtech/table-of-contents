@@ -72,4 +72,4 @@ function buildLi(elem){
   return li;
 }
 
-document.body.onload = buildTableOfContents();
+buildTableOfContents();
