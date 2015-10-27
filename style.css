@@ -1,6 +1,3 @@
-table-of-contents.collapsed ol {
+.collapsed {
   display: none;
-}
-table-of-contents.collapsed h2 {
- display: none;
 }
