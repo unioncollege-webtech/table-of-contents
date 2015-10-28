@@ -19,9 +19,9 @@ for (var i = 0; i < headings.length; i++) {
     if (heading.tagName === 'H2' && headings[i + 1].tagName === 'H3') {
         var h = i + 1;
         var a = document.createElement('a');
-            a.href = "#" + headings[i].id;
-            a.rel = "internal";
-            a.textContent = headings[i].textContent;
+        a.href = "#" + headings[i].id;
+        a.rel = "internal";
+        a.textContent = headings[i].textContent;
         var li = document.createElement('li');
         li.appendChild(a);
         
@@ -56,12 +56,12 @@ toc.appendChild(tocList);
 
 var tocHeading = document.createElement('h2');
 tocHeading.textContent = 'Table of Contents';
+tocHeading.id = 'tocHeading';
 
 toc.insertBefore(tocHeading, tocList);
 
 tocHeading.addEventListener('click', function() {
     tocList.classList.toggle('collapsed');
+    tocHeading.classList.toggle('heading-collapsed');
     console.log(tocList);
 }, false);
-
-
