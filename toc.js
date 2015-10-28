@@ -52,8 +52,8 @@ function buildTableOfContents(){
   // Make it collapsible
   iTag.addEventListener('click', function(){
     ol.classList.toggle('collapsed');
-    iTag.className.toggle('fa-expand');
-    iTag.className.toggle('fa-compress');
+    iTag.classList.toggle('fa-expand');
+    iTag.classList.toggle('fa-compress');
   }, false);
 }
 
