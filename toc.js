@@ -20,21 +20,36 @@ var tocList = document.createElement('ol');
 for (var i = 0; i < headings.length; i++) {
     var heading = headings[i];
     
-    //console.log(heading.id);
-    //console.log(heading.textContent);
-    
-    var a = document.createElement('a');
-    a.href = "#" + heading.id;
-    a.rel = "internal";
-    a.textContent = heading.textContent;
-    //console.log(a);
-    
-    var li = document.createElement('li');
-    li.appendChild(a);
-    tocList.appendChild(li);
+    var ul = document.createElement('ul');
+
+    if (heading.tagName === 'H3' && headings[i - 1].tagName === 'H2') {
+        var h = i;
+        while (headings[h].tagName === 'H3') {
+            var a = document.createElement('a');
+            a.href = "#" + headings[h].id;
+            a.rel = "internal";
+            a.textContent = headings[h].textContent;
+            var li = document.createElement('li');
+            li.appendChild(a);
+            ul.appendChild(li);
+            h++;
+        }
+        tocList.appendChild(ul);
+        i = h - 1;
+    } else {
+        var a = document.createElement('a');
+        a.href = "#" + heading.id;
+        a.rel = "internal";
+        a.textContent = heading.textContent;
+        
+        var li = document.createElement('li');
+        li.appendChild(a);
+        tocList.appendChild(li);
+    }
 }
 
-console.log(tocList);
+
+//console.log(tocList);
 
 // Loop through the headings using a 'for' loop, and create an ordered list of 
 // links to the different sections of the document. The final list of
@@ -69,7 +84,7 @@ console.log(tocList);
 var toc = document.querySelector("#table-of-contents");
 
 // Sanity check: console.log the `toc` variable
-console.log(toc);
+//console.log(toc);
 
 // Append the `ol` containing the table of contents list to `toc`.
 toc.appendChild(tocList);
@@ -78,14 +93,14 @@ toc.appendChild(tocList);
 // "Table of Contents"
 var tocHeading = document.createElement('h2');
 tocHeading.textContent = 'Table of Contents';
-console.log(tocHeading);
+//console.log(tocHeading);
 
 // Use insertBefore to add the heading to `toc` *before* the `ol` containing the
 toc.insertBefore(tocHeading, tocList);
 // list of internal links.
 
 // Sanity check: console.log `toc`
-console.log(toc);
+//console.log(toc);
 
 
 
