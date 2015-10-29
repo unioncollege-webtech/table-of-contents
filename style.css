@@ -2,8 +2,7 @@
     display: none;
 }
 
-.heading-collapsed {
-    font-style: italic;
+.header-collapsed {
     text-decoration: underline;
     color: blue;
 }
