@@ -1,0 +1,9 @@
+.collapsed {
+    display: none;
+}
+
+#table-of-contents h2 {
+    color: #87CEFA;
+    cursor: pointer;
+    text-decoration: underline;
+}
