@@ -26,13 +26,13 @@ for(var i = 0; i < headings.length; i++) {
    if (heading.localName == "h2") {
      tocList.appendChild(li);
      var nestTocHead = document.createElement('ol');
-     tocList.appendChild(nestTocHead)
+     tocList.appendChild(nestTocHead);
    } 
     else {
         nestTocHead.appendChild(li);
     }
 }
-console.log(tocList)
+console.log(tocList);
 
 
 // Build the `a` and `li` elements
