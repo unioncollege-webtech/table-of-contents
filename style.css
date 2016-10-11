@@ -1,0 +1,27 @@
+h2 {
+  text-align: center;
+}
+
+.collapsed {
+  display: none;
+}
+
+.header-collapsed {
+  background-color: #a7f24a !important;
+
+  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+}
+
+body {
+  background-color: #ccf49b;
+}
+
+#table-of-contents {
+  background-color: #ccf49b;
+}
+
+#table-of-contents h2 {
+  cursor: pointer;
+  background-color: #91af6c;
+}
